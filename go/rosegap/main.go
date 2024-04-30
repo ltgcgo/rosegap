@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"time"
+	"strconv"
 	"math/rand"
 	"net/http"
 
@@ -12,6 +13,7 @@ import (
 )
 
 var appVersion string = "0.0.1"
+var appPort uint16 = 8060
 
 func randomIndexFromLength(rngSrc *rand.Rand, arrayLength int) int {
 	var step uint64 = rngSrc.Uint64() & 0xffffffffffff
@@ -19,10 +21,11 @@ func randomIndexFromLength(rngSrc *rand.Rand, arrayLength int) int {
 }
 
 func main() {
-	fmt.Printf("Lightingale Rosegap v%s\n\n", appVersion)
+	fmt.Printf("[Rosegap]   Current version: v%s\n\n", appVersion)
 	instRng := rand.New(weyl.NewSource(time.Now().UnixNano()))
-	fmt.Println("[Rosegap]    Setting up routes...")
+	fmt.Println("[Rosegap]   Setting up routes...")
 	ginServer := gin.Default()
+	ginServer.SetTrustedProxies([]string{"127.0.0.0/8", "::1"})
 	ginServer.GET("/api/status", func (ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
 			"docs": "https://kb.ltgc.cc/rosegap/",
@@ -34,5 +37,5 @@ func main() {
 			"value": randomIndexFromLength(instRng, 16),
 		})
 	})
-	ginServer.Run()
+	ginServer.Run("127.0.0.1:" + strconv.FormatUint(uint64(appPort), 10))
 }
