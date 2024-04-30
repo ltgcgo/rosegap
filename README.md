@@ -1,10 +1,11 @@
-# Hyacinth
-💨 Build web projects with speed.
+# Rosegap
+🌹🌙 Pleasant ads without compromises.
 
-Documentation available at [kb.ltgc.cc](https://kb.ltgc.cc/hyacinth/).
+Documentation available at [kb.ltgc.cc](https://kb.ltgc.cc/rosegap/).
 
 ## Key features
-* No BS configurations, just build.
-* Uses `esbuild` (**JS**, CSS), `tdewolff-minify` (**HTML**, JS) and `lightningcss` (**CSS**) under the hood with automatic fallbacks.
-* Runtime agnostic, no support towards any single runtime.
-* Directory structured.
+* Easy for anyone to host an ad service and integrate in clients.
+* As non-intrusive as possible.
+* Uses cutting-edge codecs on delivery for maximum transfer saves.
+* Tracking only happens upon ad issuing and clicking.
+* Do not track *any* identifiable information.
