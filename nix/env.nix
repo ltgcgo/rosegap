@@ -19,14 +19,14 @@ pkgs.mkShell {
 		git
 		nano
 		curl
+		gnupg
 		gzip
-		zopfli
-		brotli
 		# Development dependencies
 		deno
 		lightningcss
 		esbuild
 		minify
+		go
 	];
 	GIT_EDITOR = "${pkgs.nano}/bin/nano";
 	shellHook = ''
