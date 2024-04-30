@@ -5,4 +5,11 @@ build
 *.map
 .docker_name
 dist/*.js
-dist/*.css
+# From established Go projects...
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.dat
